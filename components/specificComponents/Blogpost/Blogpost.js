@@ -11,8 +11,9 @@ export default class Blogpost extends Component {
 
 	render() {
 		return (
-			<>
 				<div {...storyblokEditable(this.props.blok)} className={css["Blogpostitem"]}>
+					<Headermenu blok={this.props.menu.content}></Headermenu>
+
 					<div className={css["Blogpostheader"]}>
 						<span className={css["Blogpostdate"]}>{this.props.blok.date}</span>
 						<span className={css["Blogposttitle"]}>{this.props.blok.title}</span>
@@ -20,8 +21,10 @@ export default class Blogpost extends Component {
 					<div className={css["Blogpostitemcontent"]}>
 						{RichTextToHTML({ document: this.props.blok.description })}
 					</div>
-				</div>
-			</>
+					</div>
+
+			
+			
 		);
 	}
 }
