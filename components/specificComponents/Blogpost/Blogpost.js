@@ -9,8 +9,8 @@ export default class Blogpost extends Component {
 
 	constructor(props) {
 		super(props);
-		this.props.blok.title = this.props.blok.firstname + " " + this.props.blok.lastname
-		this.props.blok.tagline = "Location: " + this.props.blok.location;
+		this.props.blok.title = this.props.blok.title;
+		this.props.blok.tagline = this.props.blok.slogan;
 	}
 
 	render() {
@@ -23,16 +23,8 @@ export default class Blogpost extends Component {
 					<div className={css["blogpost-page__main-content"]}>
 						<div id="blogpost-page__short-description" key="blogpost-page__short-description" className={css["blogpost-page__short-description"]}>
 							<section className={css["rich-text-section--with-navigator"]}>
-								<h2 className={css["rich-text-section__title"]}>My Life</h2>
-								<div className={css["rich-text-section__rich-text"]}>{RichTextToHTML({ document: this.props.blok.bio })}</div>
-							</section>
-						</div>
-						<div id="blogpost-page__short-description" key="blogpost-page__short-description" className={css["blogpost-page__short-description"]}>
-							<section className={css["rich-text-section--with-navigator"]}>
-							<h2 className={css["rich-text-section__title"]}>Experience</h2>
-								{this.props.blok.experiences && this.props.blok.experiences.map((nestedBlok) => (
-									<StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-								))}
+								<h2 className={css["rich-text-section__title"]}>{this.props.title}</h2>
+								<div className={css["rich-text-section__rich-text"]}>{RichTextToHTML({ document: this.props.blok.content })}</div>
 							</section>
 						</div>
 					</div>
